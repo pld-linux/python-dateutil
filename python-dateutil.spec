@@ -1,6 +1,6 @@
 %define         module dateutil
 Summary:	Extensions to the standard datetime module
-Summary(pl):	Rozszerzenia modulu datetime jezyka Python
+Summary(pl):	Rozszerzenia modu³u datetime jêzyka Python
 Name:		python-dateutil
 Version:	1.1
 Release:	1
@@ -13,20 +13,24 @@ BuildRequires:	rpm-pythonprov
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-The dateutil module provides powerful extensions to the standard datetime module, available in Python 2.3+.
-Allows
-- computing of relative deltas (next month, next year, next monday, last week of month, etc),
-- computing of dates based on very flexible recurrence rules, using a superset of the [WWW] iCalendar specification,
+The dateutil module provides powerful extensions to the standard
+datetime module, available in Python 2.3+. Allows:
+- computing of relative deltas (next month, next year, next monday,
+  last week of month, etc),
+- computing of dates based on very flexible recurrence rules, using a
+  superset of the [WWW] iCalendar specification,
 - parsing of RFC strings,
 - peneric parsing of dates in almost any string format.
 
 %description -l pl
-Modul dateutil jest poteznym rozszerzeniem standardowego modulu datetime, dostepnego w Pythonie 2.3+.
-Pozwala na
-- obliczanie relatywnych roznic (nastepny miesiac, rok, Poniedzialek, ostatni tydzien itp.),
-- obliczanie  dat bazujcych na bardzo elastycznych rekurencyjnych zasadach, uzywajac nadzbioru specyfikacji [WWW] iCalendar.
-- parsowanie lancuchow znakowych RFC,
-- parsowanie dat w prawie kazdym formacie.
+Modu³ dateutil jest potê¿nym rozszerzeniem standardowego modu³u
+datetime, dostêpnego w Pythonie 2.3+. Pozwala na:
+- obliczanie relatywnych ró¿nic (nastêpny miesi±c, rok, poniedzia³ek,
+  ostatni tydzieñ miesi±ca itp.),
+- obliczanie dat w oparciu o bardzo elastyczne rekurencyjne zasady, z
+  u¿yciem nadzbioru specyfikacji [WWW] iCalendar,
+- analizê ³añcuchow znakowych RFC,
+- analizê dat w prawie ka¿dym formacie.
 
 %prep
 %setup -q
@@ -38,7 +42,8 @@ python setup.py build
 rm -rf $RPM_BUILD_ROOT
 
 python setup.py install \
-        --root=$RPM_BUILD_ROOT  --optimize=2
+        --root=$RPM_BUILD_ROOT \
+	--optimize=2
 
 %clean
 rm -rf $RPM_BUILD_ROOT
