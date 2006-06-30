@@ -50,9 +50,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-#%%doc AUTHORS CREDITS ChangeLog NEWS README THANKS TODO
-%dir %{py_sitescriptdir}/%{module}
-%{py_sitescriptdir}/%{module}/*.py[co]
-#NOTE: Not sure but seems zoneinfno is needed under windows only
-#%%dir %{py_sitescriptdir}/%{module}/zoneinfo
-#%%{py_sitescriptdir}/%{module}/zoneinfo/*.py[co]
+%doc LICENSE NEWS README
+%dir %{py_sitescriptdir}/dateutil
+%{py_sitescriptdir}/dateutil/*.py[co]
+#NOTE: Not sure but seems zoneinfo is needed under windows only
+#%%dir %{py_sitescriptdir}/dateutil/zoneinfo
+#%%{py_sitescriptdir}/dateutil/zoneinfo/*.py[co]
