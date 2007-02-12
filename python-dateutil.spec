@@ -1,6 +1,6 @@
 %define         module dateutil
 Summary:	Extensions to the standard datetime module
-Summary(pl):	Rozszerzenia modu³u datetime jêzyka Python
+Summary(pl.UTF-8):   Rozszerzenia moduÅ‚u datetime jÄ™zyka Python
 Name:		python-dateutil
 Version:	1.1
 Release:	1
@@ -22,15 +22,15 @@ datetime module, available in Python 2.3+. Allows:
 - parsing of RFC strings,
 - peneric parsing of dates in almost any string format.
 
-%description -l pl
-Modu³ dateutil jest potê¿nym rozszerzeniem standardowego modu³u
-datetime, dostêpnego w Pythonie 2.3+. Pozwala na:
-- obliczanie relatywnych ró¿nic (nastêpny miesi±c, rok, poniedzia³ek,
-  ostatni tydzieñ miesi±ca itp.),
+%description -l pl.UTF-8
+ModuÅ‚ dateutil jest potÄ™Å¼nym rozszerzeniem standardowego moduÅ‚u
+datetime, dostÄ™pnego w Pythonie 2.3+. Pozwala na:
+- obliczanie relatywnych rÃ³Å¼nic (nastÄ™pny miesiÄ…c, rok, poniedziaÅ‚ek,
+  ostatni tydzieÅ„ miesiÄ…ca itp.),
 - obliczanie dat w oparciu o bardzo elastyczne rekurencyjne zasady, z
-  u¿yciem nadzbioru specyfikacji [WWW] iCalendar,
-- analizê ³añcuchow znakowych RFC,
-- analizê dat w prawie ka¿dym formacie.
+  uÅ¼yciem nadzbioru specyfikacji [WWW] iCalendar,
+- analizÄ™ Å‚aÅ„cuchow znakowych RFC,
+- analizÄ™ dat w prawie kaÅ¼dym formacie.
 
 %prep
 %setup -q
