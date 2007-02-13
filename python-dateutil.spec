@@ -1,6 +1,6 @@
 %define         module dateutil
 Summary:	Extensions to the standard datetime module
-Summary(pl.UTF-8):   Rozszerzenia modułu datetime języka Python
+Summary(pl.UTF-8):	Rozszerzenia modułu datetime języka Python
 Name:		python-dateutil
 Version:	1.1
 Release:	1
