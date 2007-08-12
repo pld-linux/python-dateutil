@@ -42,7 +42,7 @@ python setup.py build
 rm -rf $RPM_BUILD_ROOT
 
 python setup.py install \
-        --root=$RPM_BUILD_ROOT \
+	--root=$RPM_BUILD_ROOT \
 	--optimize=2
 
 %py_postclean %{py_sitescriptdir}/dateutil
