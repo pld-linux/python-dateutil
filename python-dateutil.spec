@@ -1,4 +1,4 @@
-%define         module dateutil
+%define		module dateutil
 Summary:	Extensions to the standard datetime module
 Summary(pl.UTF-8):	Rozszerzenia modułu datetime języka Python
 Name:		python-dateutil
@@ -36,16 +36,19 @@ datetime, dostępnego w Pythonie 2.3+. Pozwala na:
 %setup -q
 
 %build
-python setup.py build
+%{__python} setup.py build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-python setup.py install \
+%{__python} setup.py install \
 	--root=$RPM_BUILD_ROOT \
 	--optimize=2
 
 %py_postclean %{py_sitescriptdir}/dateutil
+
+# NOTE: Not sure but seems zoneinfo is needed under windows only
+rm -rf $RPM_BUILD_ROOT%{py_sitescriptdir}/dateutil/zoneinfo
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -55,6 +58,3 @@ rm -rf $RPM_BUILD_ROOT
 %doc LICENSE NEWS README
 %dir %{py_sitescriptdir}/dateutil
 %{py_sitescriptdir}/dateutil/*.py[co]
-#NOTE: Not sure but seems zoneinfo is needed under windows only
-#%%dir %{py_sitescriptdir}/dateutil/zoneinfo
-#%%{py_sitescriptdir}/dateutil/zoneinfo/*.py[co]
