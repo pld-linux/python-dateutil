@@ -3,7 +3,7 @@ Summary:	Extensions to the standard datetime module
 Summary(pl.UTF-8):	Rozszerzenia modułu datetime języka Python
 Name:		python-dateutil
 Version:	1.3
-Release:	3
+Release:	4
 License:	PSF
 Group:		Libraries/Python
 Source0:	http://labix.org/download/python-dateutil/python-%{module}-%{version}.tar.bz2
@@ -42,8 +42,8 @@ datetime, dostępnego w Pythonie 2.3+. Pozwala na:
 rm -rf $RPM_BUILD_ROOT
 
 %{__python} setup.py install \
+	--optimize=2 \
 	--root=$RPM_BUILD_ROOT \
-	--optimize=2
 
 %py_postclean %{py_sitescriptdir}/dateutil
 
@@ -58,3 +58,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc LICENSE NEWS README
 %dir %{py_sitescriptdir}/dateutil
 %{py_sitescriptdir}/dateutil/*.py[co]
+%if "%{py_ver}" > "2.4"
+%{py_sitescriptdir}/python_dateutil-*.egg-info
+%endif
