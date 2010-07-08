@@ -3,7 +3,7 @@ Summary:	Extensions to the standard datetime module
 Summary(pl.UTF-8):	Rozszerzenia modułu datetime języka Python
 Name:		python-dateutil
 Version:	1.3
-Release:	4
+Release:	5
 License:	PSF
 Group:		Libraries/Python
 Source0:	http://labix.org/download/python-dateutil/python-%{module}-%{version}.tar.bz2
