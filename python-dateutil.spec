@@ -41,11 +41,9 @@ datetime, dostępnego w Pythonie 2.3+. Pozwala na:
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__python} setup.py install \
+%{__python3} setup.py install \
 	--optimize=2 \
 	--root=$RPM_BUILD_ROOT \
-
-%py_postclean %{py_sitescriptdir}/dateutil
 
 # NOTE: Not sure but seems zoneinfo is needed under windows only
 rm -rf $RPM_BUILD_ROOT%{py_sitescriptdir}/dateutil/zoneinfo
@@ -56,8 +54,5 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc LICENSE NEWS README
-%dir %{py_sitescriptdir}/dateutil
-%{py_sitescriptdir}/dateutil/*.py[co]
-%if "%{py_ver}" > "2.4"
-%{py_sitescriptdir}/python_dateutil-*.egg-info
-%endif
+%{py3_sitescriptdir}/dateutil
+%{py3_sitescriptdir}/python_dateutil-*.egg-info
