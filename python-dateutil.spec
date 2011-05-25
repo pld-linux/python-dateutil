@@ -2,7 +2,7 @@
 Summary:	Extensions to the standard datetime module
 Summary(pl.UTF-8):	Rozszerzenia modułu datetime języka Python
 Name:		python-dateutil
-Version:	2.0
+Version:	1.5
 Release:	1
 License:	BSD
 Group:		Libraries/Python
@@ -36,12 +36,12 @@ datetime, dostępnego w Pythonie 2.3+. Pozwala na:
 %setup -q
 
 %build
-%{__python3} setup.py build
+%{__python} setup.py build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__python3} setup.py install \
+%{__python} setup.py install \
 	--optimize=2 \
 	--root=$RPM_BUILD_ROOT \
 
@@ -54,5 +54,5 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc LICENSE NEWS README
-%{py3_sitescriptdir}/dateutil
-%{py3_sitescriptdir}/python_dateutil-*.egg-info
+%{py_sitescriptdir}/dateutil
+%{py_sitescriptdir}/python_dateutil-*.egg-info
