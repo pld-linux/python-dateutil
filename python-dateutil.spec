@@ -7,7 +7,7 @@ Release:	1
 License:	BSD
 Group:		Libraries/Python
 Source0:	http://niemeyer.net/download/python-dateutil/python-%{module}-%{version}.tar.gz
-# Source0-md5:	22297f7e891bcd79a80d9446d8b20542
+# Source0-md5:	35f3732db3f2cc4afdc68a8533b60a52
 URL:		http://niemeyer.net/python-dateutil
 BuildRequires:	rpm-pythonprov
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
