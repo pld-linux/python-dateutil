@@ -3,13 +3,15 @@ Summary:	Extensions to the standard datetime module
 Summary(pl.UTF-8):	Rozszerzenia modułu datetime języka Python
 Name:		python-dateutil
 Version:	1.5
-Release:	1
+Release:	2
 License:	BSD
 Group:		Libraries/Python
 Source0:	http://niemeyer.net/download/python-dateutil/python-%{module}-%{version}.tar.gz
 # Source0-md5:	35f3732db3f2cc4afdc68a8533b60a52
 URL:		http://niemeyer.net/python-dateutil
 BuildRequires:	rpm-pythonprov
+BuildRequires:	rpmbuild(macros) >= 0.219
+BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -40,13 +42,15 @@ datetime, dostępnego w Pythonie 2.3+. Pozwala na:
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 %{__python} setup.py install \
+	--skip-build \
 	--optimize=2 \
 	--root=$RPM_BUILD_ROOT \
 
+%py_postclean
+
 # NOTE: Not sure but seems zoneinfo is needed under windows only
-rm -rf $RPM_BUILD_ROOT%{py_sitescriptdir}/dateutil/zoneinfo
+%{__rm} -r $RPM_BUILD_ROOT%{py_sitescriptdir}/dateutil/zoneinfo
 
 %clean
 rm -rf $RPM_BUILD_ROOT
