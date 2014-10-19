@@ -2,17 +2,20 @@
 Summary:	Extensions to the standard datetime module
 Summary(pl.UTF-8):	Rozszerzenia modułu datetime języka Python
 Name:		python-dateutil
-Version:	1.5
-Release:	4
+Version:	2.2
+Release:	1
 License:	BSD
 Group:		Libraries/Python
-Source0:	http://niemeyer.net/download/python-dateutil/python-%{module}-%{version}.tar.gz
-# Source0-md5:	35f3732db3f2cc4afdc68a8533b60a52
+Source0:	https://pypi.python.org/packages/source/p/python-dateutil/python-%{module}-%{version}.tar.gz
+# Source0-md5:	c1f654d0ff7e33999380a8ba9783fd5c
 Patch0:		system-zoneinfo.patch
-URL:		http://niemeyer.net/python-dateutil
+URL:		http://labix.org/python-dateutil
+BuildRequires:	python-modules >= 1:2.6
+BuildRequires:	python-six
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 0.219
-Requires:	tzdata
+Requires:	python-six
+Requires:	tzdata >= 2013h
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 

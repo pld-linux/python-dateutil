@@ -72,12 +72,11 @@ diff -up python-dateutil-1.5/dateutil/zoneinfo/__init__.py\~ python-dateutil-1.5
      return tzinfo
  
  def rebuild(filename, tag=None, format="gz"):
-diff -up python-dateutil-1.5/setup.py\~ python-dateutil-1.5/setup.py
---- python-dateutil-1.5/setup.py~	2010-01-11 10:43:22.000000000 +0100
-+++ python-dateutil-1.5/setup.py	2011-08-17 15:38:13.206304651 +0200
-@@ -15,6 +15,16 @@ TOPDIR = os.path.dirname(__file__) or ".
+--- python-dateutil-2.2/setup.py.orig	2013-11-01 09:32:03.000000000 +0100
++++ python-dateutil-2.2/setup.py	2014-10-19 16:56:34.244854176 +0200
+@@ -16,6 +16,16 @@
  VERSION = re.search('__version__ = "([^"]+)"',
-                     open(TOPDIR + "/dateutil/__init__.py").read()).group(1)
+                     codecs.open(TOPDIR + "/dateutil/__init__.py", encoding='utf-8').read()).group(1)
  
 +# XXX We would like to bind this to something like
 +# --system-zoneinfo=/path/to/zoneinfo.  Any way of doing this short of
@@ -92,12 +91,19 @@ diff -up python-dateutil-1.5/setup.py\~ python-dateutil-1.5/setup.py
  
  setup(name="python-dateutil",
        version = VERSION,
-@@ -29,7 +39,7 @@ The dateutil module provides powerful ex
- datetime module, available in Python 2.3+.
+@@ -30,7 +40,6 @@
+ datetime module available in the Python standard library.
  """,
        packages = ["dateutil", "dateutil.zoneinfo"],
--      package_data={"": ["*.tar.gz"]},
-       include_package_data=True,
-       zip_safe=False,
+-      package_data = {"": ["*.tar.gz"]},
+       include_package_data = True,
+       zip_safe = False,
+       requires = ["six"],
+@@ -47,5 +56,6 @@
+           'Programming Language :: Python :: 3.2',
+           'Programming Language :: Python :: 3.3',
+           'Topic :: Software Development :: Libraries',
+-      ]
++      ],
 +      **extra_options
        )
