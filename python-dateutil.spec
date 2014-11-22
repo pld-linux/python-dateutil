@@ -15,16 +15,16 @@ Source0:	https://pypi.python.org/packages/source/p/python-dateutil/python-%{modu
 # Source0-md5:	c1f654d0ff7e33999380a8ba9783fd5c
 Patch0:		system-zoneinfo.patch
 URL:		http://labix.org/python-dateutil
+BuildRequires:	rpm-pythonprov
+BuildRequires:	rpmbuild(macros) >= 0.219
 %if %{with python2}
 BuildRequires:	python-modules >= 1:2.6
-BuildRequires:	python-six
+BuildRequires:	python-setuptools
 %endif
 %if %{with python3}
 BuildRequires:	python3-modules >= 1:3.2
-BuildRequires:	python3-six
+BuildRequires:	python3-setuptools
 %endif
-BuildRequires:	rpm-pythonprov
-BuildRequires:	rpmbuild(macros) >= 0.219
 Requires:	python-six
 Requires:	tzdata >= 2013h
 BuildArch:	noarch
