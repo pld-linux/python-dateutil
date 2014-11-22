@@ -16,7 +16,7 @@ Source0:	https://pypi.python.org/packages/source/p/python-dateutil/python-%{modu
 Patch0:		system-zoneinfo.patch
 URL:		http://labix.org/python-dateutil
 BuildRequires:	rpm-pythonprov
-BuildRequires:	rpmbuild(macros) >= 0.219
+BuildRequires:	rpmbuild(macros) >= 1.219
 %if %{with python2}
 BuildRequires:	python-modules >= 1:2.6
 BuildRequires:	python-setuptools
