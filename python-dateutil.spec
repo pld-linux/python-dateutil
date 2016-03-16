@@ -104,19 +104,19 @@ datetime, dostępnego w Pythonie 2.3+. Pozwala na:
 Ten pakiet zawiera moduł Pythona 3.x.
 
 %package -n python3-dateutil-zoneinfo
-Summary:	Internal zoneinfo implementation for Python 2 dateutil module
-Summary(pl.UTF-8):	Wewnętrzna implementacja zoneinfo dla modułu Pythona 2 dateutil
+Summary:	Internal zoneinfo implementation for Python 3 dateutil module
+Summary(pl.UTF-8):	Wewnętrzna implementacja zoneinfo dla modułu Pythona 3 dateutil
 Group:		Libraries/Python
 Requires:	python3-dateutil = %{version}-%{release}
 
 %description -n python3-dateutil-zoneinfo
-Internal zoneinfo implementation for Python 2 dateutil module.
+Internal zoneinfo implementation for Python 3 dateutil module.
 
 Note: it contains own timezone database, which might not be up to date
 with system zoneinfo data.
 
 %description -n python3-dateutil-zoneinfo -l pl.UTF-8
-Wewnętrzna implementacja zoneinfo dla modułu Pythona 2 dateutil.
+Wewnętrzna implementacja zoneinfo dla modułu Pythona 3 dateutil.
 
 Uwaga: zawiera własną bazę danych stref czasowych, która nie musi być
 aktualna w stosunku do systemowych danych zoneinfo.
