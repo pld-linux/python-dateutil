@@ -1,0 +1,3 @@
+it still uses system tzdata package,
+
+see https://github.com/dateutil/dateutil/issues/11
