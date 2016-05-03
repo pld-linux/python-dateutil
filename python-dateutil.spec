@@ -4,6 +4,7 @@
 %bcond_without	python3 # CPython 3.x module
 
 %define		module dateutil
+%define		tzdata	2016d
 Summary:	Extensions to the standard Python datetime module
 Summary(pl.UTF-8):	Rozszerzenia modułu datetime języka Python
 Name:		python-dateutil
@@ -25,8 +26,7 @@ BuildRequires:	python-setuptools
 BuildRequires:	python3-modules >= 1:3.2
 BuildRequires:	python3-setuptools
 %endif
-Requires:	python-six >= 1.5
-Requires:	tzdata >= 2016d
+Requires:	tzdata >= %{tzdata}
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -76,8 +76,7 @@ aktualna w stosunku do systemowych danych zoneinfo.
 Summary:	Extensions to the standard Python datetime module
 Summary(pl.UTF-8):	Rozszerzenia modułu datetime języka Python
 Group:		Libraries/Python
-Requires:	python3-six >= 1.5
-Requires:	tzdata >= 2016a
+Requires:	tzdata >= %{tzdata}
 
 %description -n python3-dateutil
 The dateutil module provides powerful extensions to the standard
