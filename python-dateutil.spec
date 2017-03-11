@@ -2,30 +2,40 @@
 # Conditional build:
 %bcond_without	python2 # CPython 2.x module
 %bcond_without	python3 # CPython 3.x module
+%bcond_without	tests	# unit tests
 
 %define		module dateutil
-%define		tzdata_ver	2016d
+%define		tzdata_ver	2016i
 Summary:	Extensions to the standard Python datetime module
 Summary(pl.UTF-8):	Rozszerzenia modułu datetime języka Python
 Name:		python-dateutil
-Version:	2.5.3
-Release:	2
+Version:	2.6.0
+Release:	1
 License:	BSD
 Group:		Libraries/Python
 # Source0Download: https://pypi.python.org/simple/python-dateutil/
-Source0:	https://pypi.python.org/packages/3e/f5/aad82824b369332a676a90a8c0d1e608b17e740bbb6aeeebca726f17b902/%{name}-%{version}.tar.gz
-# Source0-md5:	05ffc6d2cc85a7fd93bb245807f715ef
+Source0:	https://pypi.python.org/packages/51/fc/39a3fbde6864942e8bb24c93663734b74e281b984d1b8c4f95d64b0c21f6/%{name}-%{version}.tar.gz
+# Source0-md5:	6e38f91e8c94c15a79ce22768dfeca87
 URL:		https://dateutil.readthedocs.org/
-BuildRequires:	rpm-pythonprov
-BuildRequires:	rpmbuild(macros) >= 1.714
 %if %{with python2}
 BuildRequires:	python-modules >= 1:2.6
 BuildRequires:	python-setuptools
+%if %{with tests}
+BuildRequires:	python-six >= 1.5
+%if "%{py_ver}" < "2.7"
+BuildRequires:	python-unittest2
+%endif
+%endif
 %endif
 %if %{with python3}
 BuildRequires:	python3-modules >= 1:3.2
 BuildRequires:	python3-setuptools
+%if %{with tests}
+BuildRequires:	python3-six >= 1.5
 %endif
+%endif
+BuildRequires:	rpm-pythonprov
+BuildRequires:	rpmbuild(macros) >= 1.714
 Requires:	tzdata >= %{tzdata_ver}
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -125,11 +135,11 @@ aktualna w stosunku do systemowych danych zoneinfo.
 
 %build
 %if %{with python2}
-%py_build
+%py_build %{?with_tests:test}
 %endif
 
 %if %{with python3}
-%py3_build
+%py3_build %{?with_tests:test}
 %endif
 
 %install
