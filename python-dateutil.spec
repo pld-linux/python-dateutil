@@ -5,22 +5,27 @@
 %bcond_without	tests	# unit tests
 
 %define		module dateutil
-%define		tzdata_ver	2016i
+%define		tzdata_ver	2018e
 Summary:	Extensions to the standard Python datetime module
 Summary(pl.UTF-8):	Rozszerzenia modułu datetime języka Python
 Name:		python-dateutil
-Version:	2.6.0
-Release:	2
-License:	BSD
+Version:	2.7.3
+Release:	1
+License:	Apache v2.0 or BSD
 Group:		Libraries/Python
-# Source0Download: https://pypi.python.org/simple/python-dateutil/
-Source0:	https://pypi.python.org/packages/51/fc/39a3fbde6864942e8bb24c93663734b74e281b984d1b8c4f95d64b0c21f6/%{name}-%{version}.tar.gz
-# Source0-md5:	6e38f91e8c94c15a79ce22768dfeca87
+# Source0Download: https://pypi.org/simple/python-dateutil/
+Source0:	https://files.pythonhosted.org/packages/source/p/python_dateutil/%{name}-%{version}.tar.gz
+# Source0-md5:	175b7c1a3cc0cb01151eced07c61c0b8
 URL:		https://dateutil.readthedocs.org/
 %if %{with python2}
-BuildRequires:	python-modules >= 1:2.6
+BuildRequires:	python-modules >= 1:2.7
 BuildRequires:	python-setuptools
+BuildRequires:	python-setuptools_scm
 %if %{with tests}
+BuildRequires:	python-freezegun
+BuildRequires:	python-hypothesis >= 3.30
+BuildRequires:	python-mock
+BuildRequires:	python-pytest >= 3.0
 BuildRequires:	python-six >= 1.5
 %if "%{py_ver}" < "2.7"
 BuildRequires:	python-unittest2
@@ -28,9 +33,13 @@ BuildRequires:	python-unittest2
 %endif
 %endif
 %if %{with python3}
-BuildRequires:	python3-modules >= 1:3.2
+BuildRequires:	python3-modules >= 1:3.3
 BuildRequires:	python3-setuptools
+BuildRequires:	python3-setuptools_scm
 %if %{with tests}
+BuildRequires:	python3-freezegun
+BuildRequires:	python3-hypothesis >= 3.30
+BuildRequires:	python3-pytest >= 3.0
 BuildRequires:	python3-six >= 1.5
 %endif
 %endif
@@ -135,11 +144,21 @@ aktualna w stosunku do systemowych danych zoneinfo.
 
 %build
 %if %{with python2}
-%py_build %{?with_tests:test}
+%py_build
+
+%if %{with tests}
+PYTHONPATH=$(pwd) \
+%{__python} -m pytest dateutil/test
+%endif
 %endif
 
 %if %{with python3}
-%py3_build %{?with_tests:test}
+%py3_build
+
+%if %{with tests}
+PYTHONPATH=$(pwd) \
+%{__python3} -m pytest dateutil/test
+%endif
 %endif
 
 %install
@@ -164,6 +183,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc LICENSE NEWS README.rst
 %dir %{py_sitescriptdir}/dateutil
 %{py_sitescriptdir}/dateutil/*.py[co]
+%{py_sitescriptdir}/dateutil/parser
 %{py_sitescriptdir}/dateutil/tz
 %{py_sitescriptdir}/python_dateutil-%{version}-py*.egg-info
 
@@ -179,6 +199,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{py3_sitescriptdir}/dateutil
 %{py3_sitescriptdir}/dateutil/*.py
 %{py3_sitescriptdir}/dateutil/__pycache__
+%{py3_sitescriptdir}/dateutil/parser
 %{py3_sitescriptdir}/dateutil/tz
 %{py3_sitescriptdir}/python_dateutil-%{version}-py*.egg-info
 
