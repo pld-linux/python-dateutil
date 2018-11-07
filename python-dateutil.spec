@@ -9,13 +9,13 @@
 Summary:	Extensions to the standard Python datetime module
 Summary(pl.UTF-8):	Rozszerzenia modułu datetime języka Python
 Name:		python-dateutil
-Version:	2.7.3
+Version:	2.7.5
 Release:	1
 License:	Apache v2.0 or BSD
 Group:		Libraries/Python
 # Source0Download: https://pypi.org/simple/python-dateutil/
-Source0:	https://files.pythonhosted.org/packages/source/p/python_dateutil/%{name}-%{version}.tar.gz
-# Source0-md5:	175b7c1a3cc0cb01151eced07c61c0b8
+Source0:	http://pypi.debian.net/python-dateutil/%{name}-%{version}.tar.gz
+# Source0-md5:	6357f8f42cbe0e0e0b1e543f3aad07b7
 URL:		https://dateutil.readthedocs.org/
 %if %{with python2}
 BuildRequires:	python-modules >= 1:2.7
