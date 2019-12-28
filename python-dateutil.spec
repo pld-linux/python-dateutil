@@ -9,17 +9,20 @@
 Summary:	Extensions to the standard Python datetime module
 Summary(pl.UTF-8):	Rozszerzenia modułu datetime języka Python
 Name:		python-dateutil
-Version:	2.7.5
-Release:	2
+Version:	2.8.1
+Release:	1
 License:	Apache v2.0 or BSD
 Group:		Libraries/Python
 # Source0Download: https://pypi.org/simple/python-dateutil/
-Source0:	http://pypi.debian.net/python-dateutil/%{name}-%{version}.tar.gz
-# Source0-md5:	6357f8f42cbe0e0e0b1e543f3aad07b7
+Source0:	https://files.pythonhosted.org/packages/source/p/python-dateutil/%{name}-%{version}.tar.gz
+# Source0-md5:	f2a1d4b680b297b367a974664ca3a4f6
 URL:		https://dateutil.readthedocs.org/
+%if %(locale -a | grep -q '^C\.utf8$'; echo $?)
+BuildRequires:	glibc-localedb-all
+%endif
 %if %{with python2}
 BuildRequires:	python-modules >= 1:2.7
-BuildRequires:	python-setuptools
+BuildRequires:	python-setuptools >= 24.3
 BuildRequires:	python-setuptools_scm
 %if %{with tests}
 BuildRequires:	python-freezegun
@@ -34,7 +37,7 @@ BuildRequires:	python-unittest2
 %endif
 %if %{with python3}
 BuildRequires:	python3-modules >= 1:3.3
-BuildRequires:	python3-setuptools
+BuildRequires:	python3-setuptools >= 24.3
 BuildRequires:	python3-setuptools_scm
 %if %{with tests}
 BuildRequires:	python3-freezegun
@@ -147,6 +150,7 @@ aktualna w stosunku do systemowych danych zoneinfo.
 %py_build
 
 %if %{with tests}
+LC_ALL=C.UTF-8 \
 PYTHONPATH=$(pwd) \
 %{__python} -m pytest dateutil/test
 %endif
