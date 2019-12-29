@@ -150,9 +150,10 @@ aktualna w stosunku do systemowych danych zoneinfo.
 %py_build
 
 %if %{with tests}
+# python 2 pytest on builders seem to fail when passing exception containing non-ascii characters
 LC_ALL=C.UTF-8 \
 PYTHONPATH=$(pwd) \
-%{__python} -m pytest dateutil/test
+%{__python} -m pytest --deselect=dateutil/test/test_isoparser.py::test_iso_raises dateutil/test
 %endif
 %endif
 
