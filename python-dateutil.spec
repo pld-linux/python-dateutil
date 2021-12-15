@@ -22,7 +22,7 @@ BuildRequires:	glibc-localedb-all
 %endif
 %if %{with python2}
 BuildRequires:	python-modules >= 1:2.7
-BuildRequires:	python-setuptools >= 24.3
+BuildRequires:	python-setuptools >= 1:24.3
 BuildRequires:	python-setuptools_scm
 %if %{with tests}
 BuildRequires:	python-freezegun
@@ -37,7 +37,7 @@ BuildRequires:	python-unittest2
 %endif
 %if %{with python3}
 BuildRequires:	python3-modules >= 1:3.3
-BuildRequires:	python3-setuptools >= 24.3
+BuildRequires:	python3-setuptools >= 1:24.3
 BuildRequires:	python3-setuptools_scm
 %if %{with tests}
 BuildRequires:	python3-freezegun
