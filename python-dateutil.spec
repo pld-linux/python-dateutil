@@ -151,8 +151,13 @@ aktualna w stosunku do systemowych danych zoneinfo.
 
 %if %{with tests}
 # python 2 pytest on builders seem to fail when passing exception containing non-ascii characters
-LC_ALL=C.UTF-8 PYTHONIOENCODING=utf8 \
+# test_tz_prop.py fails with non-UTC timezone
+LC_ALL=C.UTF-8 \
+PYTHONIOENCODING=utf8 \
+PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 \
+PYTEST_PLUGINS=pytest_cov.plugin \
 PYTHONPATH=$(pwd) \
+TZ=UTC \
 %{__python} -m pytest --deselect=dateutil/test/test_isoparser.py::test_iso_raises dateutil/test
 %endif
 %endif
@@ -161,7 +166,10 @@ PYTHONPATH=$(pwd) \
 %py3_build
 
 %if %{with tests}
+PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 \
+PYTEST_PLUGINS=pytest_cov.plugin \
 PYTHONPATH=$(pwd) \
+TZ=UTC \
 %{__python3} -m pytest dateutil/test
 %endif
 %endif
