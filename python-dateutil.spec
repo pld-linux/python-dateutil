@@ -25,10 +25,12 @@ BuildRequires:	python-modules >= 1:2.7
 BuildRequires:	python-setuptools >= 1:24.3
 BuildRequires:	python-setuptools_scm
 %if %{with tests}
+BuildRequires:	python-attrs >= 21.2.0
 BuildRequires:	python-freezegun
 BuildRequires:	python-hypothesis >= 3.30
 BuildRequires:	python-mock
 BuildRequires:	python-pytest >= 3.0
+BuildRequires:	python-pytest-cov >= 2.0.0
 BuildRequires:	python-six >= 1.5
 %if "%{py_ver}" < "2.7"
 BuildRequires:	python-unittest2
@@ -40,9 +42,11 @@ BuildRequires:	python3-modules >= 1:3.3
 BuildRequires:	python3-setuptools >= 1:24.3
 BuildRequires:	python3-setuptools_scm
 %if %{with tests}
+BuildRequires:	python3-attrs >= 21.2.0
 BuildRequires:	python3-freezegun
 BuildRequires:	python3-hypothesis >= 3.30
 BuildRequires:	python3-pytest >= 3.0
+BuildRequires:	python3-pytest-cov >= 2.0.0
 BuildRequires:	python3-six >= 1.5
 %endif
 %endif
