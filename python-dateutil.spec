@@ -10,7 +10,7 @@ Summary:	Extensions to the standard Python datetime module
 Summary(pl.UTF-8):	Rozszerzenia modułu datetime języka Python
 Name:		python-dateutil
 Version:	2.8.2
-Release:	4
+Release:	5
 License:	Apache v2.0 or BSD
 Group:		Libraries/Python
 # Source0Download: https://pypi.org/simple/python-dateutil/
@@ -52,7 +52,8 @@ BuildRequires:	python3-six >= 1.5
 %endif
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
-Requires:	tzdata >= %{tzdata_ver}
+Requires:	tzdata-zoneinfo >= %{tzdata_ver}
+Suggests:	tzdata >= %{tzdata_ver}
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
