@@ -10,7 +10,7 @@ Summary:	Extensions to the standard Python datetime module
 Summary(pl.UTF-8):	Rozszerzenia modułu datetime języka Python
 Name:		python-dateutil
 Version:	2.8.2
-Release:	7
+Release:	8
 License:	Apache v2.0 or BSD
 Group:		Libraries/Python
 # Source0Download: https://pypi.org/simple/python-dateutil/
