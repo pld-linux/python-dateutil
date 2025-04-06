@@ -9,13 +9,13 @@
 Summary:	Extensions to the standard Python datetime module
 Summary(pl.UTF-8):	Rozszerzenia modułu datetime języka Python
 Name:		python-dateutil
-Version:	2.8.2
-Release:	8
+Version:	2.9.0
+Release:	1
 License:	Apache v2.0 or BSD
 Group:		Libraries/Python
 # Source0Download: https://pypi.org/simple/python-dateutil/
 Source0:	https://files.pythonhosted.org/packages/source/p/python-dateutil/%{name}-%{version}.tar.gz
-# Source0-md5:	5970010bb72452344df3d76a10281b65
+# Source0-md5:	f4888298c0f2d5239c85c6457455a975
 URL:		https://dateutil.readthedocs.org/
 %if %(locale -a | grep -q '^C\.utf8$'; echo $?)
 BuildRequires:	glibc-localedb-all
@@ -162,9 +162,9 @@ LC_ALL=C.UTF-8 \
 PYTHONIOENCODING=utf8 \
 PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 \
 PYTEST_PLUGINS=pytest_cov.plugin \
-PYTHONPATH=$(pwd) \
+PYTHONPATH=$(pwd)/src \
 TZ=UTC \
-%{__python} -m pytest --deselect=dateutil/test/test_isoparser.py::test_iso_raises dateutil/test
+%{__python} -m pytest --deselect=dateutil/test/test_isoparser.py::test_iso_raises tests
 %endif
 %endif
 
@@ -174,9 +174,9 @@ TZ=UTC \
 %if %{with tests}
 PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 \
 PYTEST_PLUGINS=pytest_cov.plugin \
-PYTHONPATH=$(pwd) \
+PYTHONPATH=$(pwd)/src \
 TZ=UTC \
-%{__python3} -m pytest dateutil/test
+%{__python3} -m pytest tests
 %endif
 %endif
 
