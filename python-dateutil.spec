@@ -5,7 +5,7 @@
 %bcond_without	tests	# unit tests
 
 %define		module dateutil
-%define		tzdata_ver	2018e
+%define		tzdata_ver	2024a
 Summary:	Extensions to the standard Python datetime module
 Summary(pl.UTF-8):	Rozszerzenia modułu datetime języka Python
 Name:		python-dateutil
